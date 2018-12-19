@@ -1,0 +1,3 @@
+INFO:tensorflow:Saving evaluation summary for step 20: accuracy = 0.33, loss = 0.591572141
+{'loss': 0.591572141, 'global_step': 20, 'accuracy': 0.33333333}
+
