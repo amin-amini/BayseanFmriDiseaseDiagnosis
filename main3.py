@@ -2,7 +2,7 @@ from __future__ import absolute_import
 from __future__ import division
 from __future__ import print_function
 from random import shuffle
-
+import math
 # Imports
 import numpy as np
 import tensorflow as tf
@@ -12,7 +12,7 @@ from subprocess import call
 # call(["rm", "-rf", "/root/AUT/Project/Codes/firstTry/outmodel2"])
 # call(["mkdir", "/root/AUT/Project/Codes/firstTry/outmodel2"])
 
-ITERATIONS = 100
+ITERATIONS = 1
 
 tf.logging.set_verbosity(tf.logging.DEBUG)
 
@@ -20,13 +20,13 @@ tf.logging.set_verbosity(tf.logging.DEBUG)
 def extract_fn(data_record):
     features = {
         # Extract features using the keys set during creation
-        'x': tf.FixedLenFeature([31629312], tf.float32),
+        'x': tf.FixedLenFeature([159744], tf.float32),
         'y': tf.FixedLenFeature([1], tf.int64),
         'shape': tf.FixedLenFeature([3], tf.int64)
     }
     sample = tf.parse_single_example(data_record, features)
 
-    return sample, sample['y']
+    return sample, tf.minimum(sample['y'], 1)
 
 
 def cnn_model_fn_1(features, labels, mode):
@@ -457,7 +457,7 @@ def cnn_model_fn_5(features, labels, mode):
         shape = tf.Tensor.eval(features["shape"], session=sess)
 
     input_layer = tf.reshape(features["x"],
-                             [-1, shape[0], 64, shape[2], 1])
+                             [-1, shape[0], shape[1], shape[2], 1])
 
     tiledLabels = tf.tile(labels, [input_layer.shape[0]])
 
@@ -488,7 +488,7 @@ def cnn_model_fn_5(features, labels, mode):
         inputs=dense, rate=0.4, training=mode == tf.estimator.ModeKeys.TRAIN)
 
     # Logits Layer
-    logits = tf.layers.dense(inputs=dropout, units=3)
+    logits = tf.layers.dense(inputs=dropout, units=2)
 
     predictions = {
         # Generate predictions (for PREDICT and EVAL mode)
@@ -522,8 +522,9 @@ def cnn_model_fn_5(features, labels, mode):
 
 
 def getTfPath():
-    return ["/root/AUT/Project/Datasets/openfmri_parkinson/ds000245_tfr_processed/%s%02d.tfrecord" % (item_type, i) for item_type
-            in ["CTL", "ODN", "ODP"] for i in range(1, 16)]
+    return ["/root/AUT/Project/Datasets/openfmri_parkinson/ds000245_tfr_expanded/%s%02d_%03d.tfrecord" % (item_type, i, t) for item_type
+            in ["CTL", #"ODN",
+                "ODP"] for i in range(1, 16) for t in range(0,198)]
 
 
 tfPaths = getTfPath()
@@ -531,7 +532,12 @@ shuffle(tfPaths)
 
 
 def dataset_input_fn(train=True):
-    filenames = tfPaths if train else tfPaths[30:45]
+    count = len(tfPaths)
+    # count = math.floor(len(tfPaths) )  #TODO: remove
+
+    trEnd = math.floor(count * 0.75)
+
+    filenames = tfPaths[0:trEnd] if train else tfPaths[trEnd:count]
 
     dataset = tf.data.TFRecordDataset(filenames).map(extract_fn)
 
@@ -564,12 +570,12 @@ def main(unused_argv):
     #     except:
     #         pass
 
-    # model = (cnn_model_fn_1, "./outmodel_processed")
-    # model = (cnn_model_fn_2, "./outmodel2")
-    # model = (cnn_model_fn_3, "./outmodel3_processed")
-    # model = (cnn_model_fn_1and3, "./outmodel1and3_processed")
-    # model = (cnn_model_fn_4, "./outmodel1and4_processed")
-    model = (cnn_model_fn_5, "./outmodel1and5_processed")
+    # model = (cnn_model_fn_1, "./outmodel_expand_processed")
+    # model = (cnn_model_fn_2, "./outmodel2_expand")
+    # model = (cnn_model_fn_3, "./outmodel3_expand_processed")
+    # model = (cnn_model_fn_1and3, "./outmodel1and3_expand_processed")
+    # model = (cnn_model_fn_4, "./outmodel1and4_expand_processed")
+    model = (cnn_model_fn_5, "./outmodel5_expand_processed")
 
     my_classifier = tf.estimator.Estimator(model_fn=model[0], model_dir=model[1])
 
