@@ -434,7 +434,7 @@ node {
       list {
         shape {
           dim {
-            size: 30
+            size: 22
           }
         }
       }
@@ -453,39 +453,31 @@ node {
         dtype: DT_STRING
         tensor_shape {
           dim {
-            size: 30
+            size: 22
           }
         }
-        string_val: "/root/AUT/Project/Datasets/openfmri_parkinson/ds000245_tfr_processed/CTL13.tfrecord"
-        string_val: "/root/AUT/Project/Datasets/openfmri_parkinson/ds000245_tfr_processed/ODN11.tfrecord"
-        string_val: "/root/AUT/Project/Datasets/openfmri_parkinson/ds000245_tfr_processed/ODN06.tfrecord"
-        string_val: "/root/AUT/Project/Datasets/openfmri_parkinson/ds000245_tfr_processed/ODP08.tfrecord"
-        string_val: "/root/AUT/Project/Datasets/openfmri_parkinson/ds000245_tfr_processed/ODP01.tfrecord"
-        string_val: "/root/AUT/Project/Datasets/openfmri_parkinson/ds000245_tfr_processed/CTL08.tfrecord"
-        string_val: "/root/AUT/Project/Datasets/openfmri_parkinson/ds000245_tfr_processed/CTL09.tfrecord"
-        string_val: "/root/AUT/Project/Datasets/openfmri_parkinson/ds000245_tfr_processed/ODP14.tfrecord"
-        string_val: "/root/AUT/Project/Datasets/openfmri_parkinson/ds000245_tfr_processed/ODN10.tfrecord"
-        string_val: "/root/AUT/Project/Datasets/openfmri_parkinson/ds000245_tfr_processed/ODP15.tfrecord"
-        string_val: "/root/AUT/Project/Datasets/openfmri_parkinson/ds000245_tfr_processed/CTL07.tfrecord"
-        string_val: "/root/AUT/Project/Datasets/openfmri_parkinson/ds000245_tfr_processed/ODP11.tfrecord"
-        string_val: "/root/AUT/Project/Datasets/openfmri_parkinson/ds000245_tfr_processed/CTL05.tfrecord"
-        string_val: "/root/AUT/Project/Datasets/openfmri_parkinson/ds000245_tfr_processed/ODN12.tfrecord"
-        string_val: "/root/AUT/Project/Datasets/openfmri_parkinson/ds000245_tfr_processed/CTL12.tfrecord"
-        string_val: "/root/AUT/Project/Datasets/openfmri_parkinson/ds000245_tfr_processed/ODP03.tfrecord"
-        string_val: "/root/AUT/Project/Datasets/openfmri_parkinson/ds000245_tfr_processed/CTL14.tfrecord"
-        string_val: "/root/AUT/Project/Datasets/openfmri_parkinson/ds000245_tfr_processed/ODN05.tfrecord"
-        string_val: "/root/AUT/Project/Datasets/openfmri_parkinson/ds000245_tfr_processed/ODP09.tfrecord"
         string_val: "/root/AUT/Project/Datasets/openfmri_parkinson/ds000245_tfr_processed/CTL11.tfrecord"
+        string_val: "/root/AUT/Project/Datasets/openfmri_parkinson/ds000245_tfr_processed/CTL05.tfrecord"
+        string_val: "/root/AUT/Project/Datasets/openfmri_parkinson/ds000245_tfr_processed/CTL12.tfrecord"
         string_val: "/root/AUT/Project/Datasets/openfmri_parkinson/ds000245_tfr_processed/ODP04.tfrecord"
-        string_val: "/root/AUT/Project/Datasets/openfmri_parkinson/ds000245_tfr_processed/ODN01.tfrecord"
-        string_val: "/root/AUT/Project/Datasets/openfmri_parkinson/ds000245_tfr_processed/CTL02.tfrecord"
         string_val: "/root/AUT/Project/Datasets/openfmri_parkinson/ds000245_tfr_processed/CTL10.tfrecord"
-        string_val: "/root/AUT/Project/Datasets/openfmri_parkinson/ds000245_tfr_processed/ODN07.tfrecord"
-        string_val: "/root/AUT/Project/Datasets/openfmri_parkinson/ds000245_tfr_processed/CTL03.tfrecord"
-        string_val: "/root/AUT/Project/Datasets/openfmri_parkinson/ds000245_tfr_processed/ODN09.tfrecord"
-        string_val: "/root/AUT/Project/Datasets/openfmri_parkinson/ds000245_tfr_processed/ODN08.tfrecord"
+        string_val: "/root/AUT/Project/Datasets/openfmri_parkinson/ds000245_tfr_processed/CTL15.tfrecord"
+        string_val: "/root/AUT/Project/Datasets/openfmri_parkinson/ds000245_tfr_processed/ODP14.tfrecord"
         string_val: "/root/AUT/Project/Datasets/openfmri_parkinson/ds000245_tfr_processed/ODP06.tfrecord"
-        string_val: "/root/AUT/Project/Datasets/openfmri_parkinson/ds000245_tfr_processed/CTL01.tfrecord"
+        string_val: "/root/AUT/Project/Datasets/openfmri_parkinson/ds000245_tfr_processed/ODP15.tfrecord"
+        string_val: "/root/AUT/Project/Datasets/openfmri_parkinson/ds000245_tfr_processed/ODP13.tfrecord"
+        string_val: "/root/AUT/Project/Datasets/openfmri_parkinson/ds000245_tfr_processed/CTL09.tfrecord"
+        string_val: "/root/AUT/Project/Datasets/openfmri_parkinson/ds000245_tfr_processed/ODP10.tfrecord"
+        string_val: "/root/AUT/Project/Datasets/openfmri_parkinson/ds000245_tfr_processed/ODP03.tfrecord"
+        string_val: "/root/AUT/Project/Datasets/openfmri_parkinson/ds000245_tfr_processed/ODP05.tfrecord"
+        string_val: "/root/AUT/Project/Datasets/openfmri_parkinson/ds000245_tfr_processed/CTL13.tfrecord"
+        string_val: "/root/AUT/Project/Datasets/openfmri_parkinson/ds000245_tfr_processed/CTL02.tfrecord"
+        string_val: "/root/AUT/Project/Datasets/openfmri_parkinson/ds000245_tfr_processed/ODP02.tfrecord"
+        string_val: "/root/AUT/Project/Datasets/openfmri_parkinson/ds000245_tfr_processed/CTL14.tfrecord"
+        string_val: "/root/AUT/Project/Datasets/openfmri_parkinson/ds000245_tfr_processed/ODP09.tfrecord"
+        string_val: "/root/AUT/Project/Datasets/openfmri_parkinson/ds000245_tfr_processed/ODP11.tfrecord"
+        string_val: "/root/AUT/Project/Datasets/openfmri_parkinson/ds000245_tfr_processed/CTL08.tfrecord"
+        string_val: "/root/AUT/Project/Datasets/openfmri_parkinson/ds000245_tfr_processed/ODP08.tfrecord"
       }
     }
   }
@@ -551,7 +543,7 @@ node {
       list {
         shape {
           dim {
-            size: 30
+            size: 22
           }
         }
       }
@@ -581,7 +573,7 @@ node {
     key: "dataset_factory"
     value {
       func {
-        name: "_make_dataset_wD4imqMBmno"
+        name: "_make_dataset_tVBf760qddg"
       }
     }
   }
@@ -7400,7 +7392,7 @@ node {
             size: 2
           }
         }
-        tensor_content: " \000\000\000\003\000\000\000"
+        tensor_content: " \000\000\000\002\000\000\000"
       }
     }
   }
@@ -7438,7 +7430,7 @@ node {
         dtype: DT_FLOAT
         tensor_shape {
         }
-        float_val: -0.41403934359550476
+        float_val: -0.42008402943611145
       }
     }
   }
@@ -7476,7 +7468,7 @@ node {
         dtype: DT_FLOAT
         tensor_shape {
         }
-        float_val: 0.41403934359550476
+        float_val: 0.42008402943611145
       }
     }
   }
@@ -7508,7 +7500,7 @@ node {
             size: 32
           }
           dim {
-            size: 3
+            size: 2
           }
         }
       }
@@ -7590,7 +7582,7 @@ node {
             size: 32
           }
           dim {
-            size: 3
+            size: 2
           }
         }
       }
@@ -7625,7 +7617,7 @@ node {
             size: 32
           }
           dim {
-            size: 3
+            size: 2
           }
         }
       }
@@ -7652,7 +7644,7 @@ node {
             size: 32
           }
           dim {
-            size: 3
+            size: 2
           }
         }
       }
@@ -7678,7 +7670,7 @@ node {
           size: 32
         }
         dim {
-          size: 3
+          size: 2
         }
       }
     }
@@ -7718,7 +7710,7 @@ node {
             size: 32
           }
           dim {
-            size: 3
+            size: 2
           }
         }
       }
@@ -7764,7 +7756,7 @@ node {
             size: 32
           }
           dim {
-            size: 3
+            size: 2
           }
         }
       }
@@ -7788,7 +7780,7 @@ node {
       list {
         shape {
           dim {
-            size: 3
+            size: 2
           }
         }
       }
@@ -7807,7 +7799,7 @@ node {
         dtype: DT_FLOAT
         tensor_shape {
           dim {
-            size: 3
+            size: 2
           }
         }
         float_val: 0.0
@@ -7832,7 +7824,7 @@ node {
       list {
         shape {
           dim {
-            size: 3
+            size: 2
           }
         }
       }
@@ -7855,7 +7847,7 @@ node {
     value {
       shape {
         dim {
-          size: 3
+          size: 2
         }
       }
     }
@@ -7892,7 +7884,7 @@ node {
       list {
         shape {
           dim {
-            size: 3
+            size: 2
           }
         }
       }
@@ -7935,7 +7927,7 @@ node {
       list {
         shape {
           dim {
-            size: 3
+            size: 2
           }
         }
       }
@@ -7962,7 +7954,7 @@ node {
             size: 1
           }
           dim {
-            size: 3
+            size: 2
           }
         }
       }
@@ -8001,7 +7993,7 @@ node {
             size: 1
           }
           dim {
-            size: 3
+            size: 2
           }
         }
       }
@@ -8099,7 +8091,7 @@ node {
             size: 1
           }
           dim {
-            size: 3
+            size: 2
           }
         }
       }
@@ -8203,7 +8195,7 @@ node {
             size: 1
           }
           dim {
-            size: 3
+            size: 2
           }
         }
       }
@@ -10548,7 +10540,7 @@ node {
             size: 1
           }
           dim {
-            size: 3
+            size: 2
           }
         }
       }
@@ -10574,7 +10566,7 @@ node {
             size: 1
           }
           dim {
-            size: 3
+            size: 2
           }
         }
       }
@@ -10670,7 +10662,7 @@ node {
             size: 1
           }
           dim {
-            size: 3
+            size: 2
           }
         }
       }
@@ -10693,7 +10685,7 @@ node {
       list {
         shape {
           dim {
-            size: 3
+            size: 2
           }
         }
       }
@@ -10740,7 +10732,7 @@ node {
             size: 1
           }
           dim {
-            size: 3
+            size: 2
           }
         }
       }
@@ -10772,7 +10764,7 @@ node {
       list {
         shape {
           dim {
-            size: 3
+            size: 2
           }
         }
       }
@@ -10838,7 +10830,7 @@ node {
             size: 32
           }
           dim {
-            size: 3
+            size: 2
           }
         }
       }
@@ -10926,7 +10918,7 @@ node {
             size: 32
           }
           dim {
-            size: 3
+            size: 2
           }
         }
       }
@@ -15256,7 +15248,7 @@ node {
         dtype: DT_FLOAT
         tensor_shape {
         }
-        float_val: 0.0010000000474974513
+        float_val: 0.0007999999797903001
       }
     }
   }
@@ -15902,7 +15894,7 @@ node {
             size: 32
           }
           dim {
-            size: 3
+            size: 2
           }
         }
       }
@@ -15941,7 +15933,7 @@ node {
       list {
         shape {
           dim {
-            size: 3
+            size: 2
           }
         }
       }
@@ -19593,7 +19585,7 @@ node {
         dtype: DT_STRING
         tensor_shape {
         }
-        string_val: "_temp_e64200e6ad024dd6956d3dd31416dae8/part"
+        string_val: "_temp_d570359599bf4f2f90a4a80ec4fddf7e/part"
       }
     }
   }
@@ -20864,7 +20856,7 @@ node {
       list {
         shape {
           dim {
-            size: 3
+            size: 2
           }
         }
       }
@@ -20911,7 +20903,7 @@ node {
             size: 32
           }
           dim {
-            size: 3
+            size: 2
           }
         }
       }
@@ -21068,7 +21060,7 @@ library {
   }
   function {
     signature {
-      name: "_make_dataset_wD4imqMBmno"
+      name: "_make_dataset_tVBf760qddg"
       output_arg {
         name: "mapdataset"
         type: DT_VARIANT
@@ -21091,39 +21083,31 @@ library {
             dtype: DT_STRING
             tensor_shape {
               dim {
-                size: 30
+                size: 22
               }
             }
-            string_val: "/root/AUT/Project/Datasets/openfmri_parkinson/ds000245_tfr_processed/CTL13.tfrecord"
-            string_val: "/root/AUT/Project/Datasets/openfmri_parkinson/ds000245_tfr_processed/ODN11.tfrecord"
-            string_val: "/root/AUT/Project/Datasets/openfmri_parkinson/ds000245_tfr_processed/ODN06.tfrecord"
-            string_val: "/root/AUT/Project/Datasets/openfmri_parkinson/ds000245_tfr_processed/ODP08.tfrecord"
-            string_val: "/root/AUT/Project/Datasets/openfmri_parkinson/ds000245_tfr_processed/ODP01.tfrecord"
-            string_val: "/root/AUT/Project/Datasets/openfmri_parkinson/ds000245_tfr_processed/CTL08.tfrecord"
-            string_val: "/root/AUT/Project/Datasets/openfmri_parkinson/ds000245_tfr_processed/CTL09.tfrecord"
-            string_val: "/root/AUT/Project/Datasets/openfmri_parkinson/ds000245_tfr_processed/ODP14.tfrecord"
-            string_val: "/root/AUT/Project/Datasets/openfmri_parkinson/ds000245_tfr_processed/ODN10.tfrecord"
-            string_val: "/root/AUT/Project/Datasets/openfmri_parkinson/ds000245_tfr_processed/ODP15.tfrecord"
-            string_val: "/root/AUT/Project/Datasets/openfmri_parkinson/ds000245_tfr_processed/CTL07.tfrecord"
-            string_val: "/root/AUT/Project/Datasets/openfmri_parkinson/ds000245_tfr_processed/ODP11.tfrecord"
-            string_val: "/root/AUT/Project/Datasets/openfmri_parkinson/ds000245_tfr_processed/CTL05.tfrecord"
-            string_val: "/root/AUT/Project/Datasets/openfmri_parkinson/ds000245_tfr_processed/ODN12.tfrecord"
-            string_val: "/root/AUT/Project/Datasets/openfmri_parkinson/ds000245_tfr_processed/CTL12.tfrecord"
-            string_val: "/root/AUT/Project/Datasets/openfmri_parkinson/ds000245_tfr_processed/ODP03.tfrecord"
-            string_val: "/root/AUT/Project/Datasets/openfmri_parkinson/ds000245_tfr_processed/CTL14.tfrecord"
-            string_val: "/root/AUT/Project/Datasets/openfmri_parkinson/ds000245_tfr_processed/ODN05.tfrecord"
-            string_val: "/root/AUT/Project/Datasets/openfmri_parkinson/ds000245_tfr_processed/ODP09.tfrecord"
             string_val: "/root/AUT/Project/Datasets/openfmri_parkinson/ds000245_tfr_processed/CTL11.tfrecord"
+            string_val: "/root/AUT/Project/Datasets/openfmri_parkinson/ds000245_tfr_processed/CTL05.tfrecord"
+            string_val: "/root/AUT/Project/Datasets/openfmri_parkinson/ds000245_tfr_processed/CTL12.tfrecord"
             string_val: "/root/AUT/Project/Datasets/openfmri_parkinson/ds000245_tfr_processed/ODP04.tfrecord"
-            string_val: "/root/AUT/Project/Datasets/openfmri_parkinson/ds000245_tfr_processed/ODN01.tfrecord"
-            string_val: "/root/AUT/Project/Datasets/openfmri_parkinson/ds000245_tfr_processed/CTL02.tfrecord"
             string_val: "/root/AUT/Project/Datasets/openfmri_parkinson/ds000245_tfr_processed/CTL10.tfrecord"
-            string_val: "/root/AUT/Project/Datasets/openfmri_parkinson/ds000245_tfr_processed/ODN07.tfrecord"
-            string_val: "/root/AUT/Project/Datasets/openfmri_parkinson/ds000245_tfr_processed/CTL03.tfrecord"
-            string_val: "/root/AUT/Project/Datasets/openfmri_parkinson/ds000245_tfr_processed/ODN09.tfrecord"
-            string_val: "/root/AUT/Project/Datasets/openfmri_parkinson/ds000245_tfr_processed/ODN08.tfrecord"
+            string_val: "/root/AUT/Project/Datasets/openfmri_parkinson/ds000245_tfr_processed/CTL15.tfrecord"
+            string_val: "/root/AUT/Project/Datasets/openfmri_parkinson/ds000245_tfr_processed/ODP14.tfrecord"
             string_val: "/root/AUT/Project/Datasets/openfmri_parkinson/ds000245_tfr_processed/ODP06.tfrecord"
-            string_val: "/root/AUT/Project/Datasets/openfmri_parkinson/ds000245_tfr_processed/CTL01.tfrecord"
+            string_val: "/root/AUT/Project/Datasets/openfmri_parkinson/ds000245_tfr_processed/ODP15.tfrecord"
+            string_val: "/root/AUT/Project/Datasets/openfmri_parkinson/ds000245_tfr_processed/ODP13.tfrecord"
+            string_val: "/root/AUT/Project/Datasets/openfmri_parkinson/ds000245_tfr_processed/CTL09.tfrecord"
+            string_val: "/root/AUT/Project/Datasets/openfmri_parkinson/ds000245_tfr_processed/ODP10.tfrecord"
+            string_val: "/root/AUT/Project/Datasets/openfmri_parkinson/ds000245_tfr_processed/ODP03.tfrecord"
+            string_val: "/root/AUT/Project/Datasets/openfmri_parkinson/ds000245_tfr_processed/ODP05.tfrecord"
+            string_val: "/root/AUT/Project/Datasets/openfmri_parkinson/ds000245_tfr_processed/CTL13.tfrecord"
+            string_val: "/root/AUT/Project/Datasets/openfmri_parkinson/ds000245_tfr_processed/CTL02.tfrecord"
+            string_val: "/root/AUT/Project/Datasets/openfmri_parkinson/ds000245_tfr_processed/ODP02.tfrecord"
+            string_val: "/root/AUT/Project/Datasets/openfmri_parkinson/ds000245_tfr_processed/CTL14.tfrecord"
+            string_val: "/root/AUT/Project/Datasets/openfmri_parkinson/ds000245_tfr_processed/ODP09.tfrecord"
+            string_val: "/root/AUT/Project/Datasets/openfmri_parkinson/ds000245_tfr_processed/ODP11.tfrecord"
+            string_val: "/root/AUT/Project/Datasets/openfmri_parkinson/ds000245_tfr_processed/CTL08.tfrecord"
+            string_val: "/root/AUT/Project/Datasets/openfmri_parkinson/ds000245_tfr_processed/ODP08.tfrecord"
           }
         }
       }
@@ -21244,7 +21228,7 @@ library {
         key: "f"
         value {
           func {
-            name: "tf_map_func_tWj4yfFFseI"
+            name: "tf_map_func_MOLNeacmtFU"
           }
         }
       }
@@ -21294,7 +21278,7 @@ library {
   }
   function {
     signature {
-      name: "tf_map_func_tWj4yfFFseI"
+      name: "tf_map_func_MOLNeacmtFU"
       input_arg {
         name: "arg0"
         type: DT_STRING
@@ -21312,7 +21296,7 @@ library {
         type: DT_INT64
       }
       output_arg {
-        name: "parsesingleexample_parsesingleexample_2"
+        name: "minimum"
         type: DT_INT64
       }
       description: "A wrapper for Defun that facilitates shape inference."
@@ -21453,6 +21437,43 @@ library {
         }
       }
     }
+    node_def {
+      name: "Minimum/y"
+      op: "Const"
+      attr {
+        key: "dtype"
+        value {
+          type: DT_INT64
+        }
+      }
+      attr {
+        key: "value"
+        value {
+          tensor {
+            dtype: DT_INT64
+            tensor_shape {
+            }
+            int64_val: 1
+          }
+        }
+      }
+    }
+    node_def {
+      name: "Minimum"
+      op: "Minimum"
+      input: "ParseSingleExample/ParseSingleExample:dense_values:2"
+      input: "Minimum/y:output:0"
+      attr {
+        key: "T"
+        value {
+          type: DT_INT64
+        }
+      }
+    }
+    ret {
+      key: "minimum"
+      value: "Minimum:z:0"
+    }
     ret {
       key: "parsesingleexample_parsesingleexample"
       value: "ParseSingleExample/ParseSingleExample:dense_values:0"
@@ -21463,10 +21484,6 @@ library {
     }
     ret {
       key: "parsesingleexample_parsesingleexample_1"
-      value: "ParseSingleExample/ParseSingleExample:dense_values:2"
-    }
-    ret {
-      key: "parsesingleexample_parsesingleexample_2"
       value: "ParseSingleExample/ParseSingleExample:dense_values:2"
     }
   }

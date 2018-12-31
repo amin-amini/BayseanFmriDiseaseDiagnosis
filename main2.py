@@ -6,13 +6,14 @@ from random import shuffle
 # Imports
 import numpy as np
 import tensorflow as tf
+import math
 
 from subprocess import call
 
 # call(["rm", "-rf", "/root/AUT/Project/Codes/firstTry/outmodel2"])
 # call(["mkdir", "/root/AUT/Project/Codes/firstTry/outmodel2"])
 
-ITERATIONS = 100
+ITERATIONS = 1
 
 tf.logging.set_verbosity(tf.logging.DEBUG)
 
@@ -26,7 +27,7 @@ def extract_fn(data_record):
     }
     sample = tf.parse_single_example(data_record, features)
 
-    return sample, sample['y']
+    return sample, tf.minimum(sample['y'], 1)
 
 
 def cnn_model_fn_1(features, labels, mode):
@@ -337,7 +338,7 @@ def cnn_model_fn_1and3(features, labels, mode):
 
 
     # Logits Layer
-    logits = tf.layers.dense(inputs=dropout, units=3)
+    logits = tf.layers.dense(inputs=dropout, units=2)
 
     predictions = {
         # Generate predictions (for PREDICT and EVAL mode)
@@ -523,7 +524,8 @@ def cnn_model_fn_5(features, labels, mode):
 
 def getTfPath():
     return ["/root/AUT/Project/Datasets/openfmri_parkinson/ds000245_tfr_processed/%s%02d.tfrecord" % (item_type, i) for item_type
-            in ["CTL", "ODN", "ODP"] for i in range(1, 16)]
+            in ["CTL", #"ODN",
+                "ODP"] for i in range(1, 16)]
 
 
 tfPaths = getTfPath()
@@ -531,7 +533,13 @@ shuffle(tfPaths)
 
 
 def dataset_input_fn(train=True):
-    filenames = tfPaths if train else tfPaths[30:45]
+
+    count = len(tfPaths)
+    # count = math.floor(len(tfPaths) )  #TODO: remove
+
+    trEnd = math.floor(count * 0.75)
+
+    filenames = tfPaths[0:trEnd] if train else tfPaths[trEnd:count]
 
     dataset = tf.data.TFRecordDataset(filenames).map(extract_fn)
 
@@ -567,9 +575,9 @@ def main(unused_argv):
     # model = (cnn_model_fn_1, "./outmodel_processed")
     # model = (cnn_model_fn_2, "./outmodel2")
     # model = (cnn_model_fn_3, "./outmodel3_processed")
-    # model = (cnn_model_fn_1and3, "./outmodel1and3_processed")
+    model = (cnn_model_fn_1and3, "./outmodel1and3_processed")
     # model = (cnn_model_fn_4, "./outmodel1and4_processed")
-    model = (cnn_model_fn_5, "./outmodel1and5_processed")
+    # model = (cnn_model_fn_5, "./outmodel1and5_processed")
 
     my_classifier = tf.estimator.Estimator(model_fn=model[0], model_dir=model[1])
 
