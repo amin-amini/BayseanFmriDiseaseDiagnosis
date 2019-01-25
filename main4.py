@@ -16,11 +16,14 @@ ITERATIONS = 50
 
 tf.logging.set_verbosity(tf.logging.DEBUG)
 
-trainRange = range(1, 13)
+instanceRange = list(range(1, 16))
+shuffle(instanceRange)
+
+trainRange = instanceRange[0:12]
 trainTimeRange = range(0,159)
 validationTimeRange = range(159,198)
 
-testRange = range(13, 16)
+testRange = instanceRange[12:15]
 
 formatPath = "/root/AUT/Project/Datasets/openfmri_parkinson/ds000245_tfr_expanded/%s%02d_%03d.tfrecord"
 
@@ -162,7 +165,7 @@ def test_input_fn(filename):
 
 def main(unused_argv):
     # model = (bayesian_cnn_model_fn, "./bayesian_cnn_model_fn")
-    model = (bayesian_cnn_model_fn, "./outmodel9_expand_processed")
+    model = (bayesian_cnn_model_fn, "./outmodel20_expand_processed")
 
     my_classifier = tf.estimator.Estimator(model_fn=model[0], model_dir=model[1])
 
@@ -186,7 +189,9 @@ def main(unused_argv):
     PrintBuffer = []
 
     correctCount = 0
+    correctCountPerSlice = 0
     totalCount = 0
+    totalSliceCount = 0
 
     label = -1
     for cls in ["CTL", "ODP"]:
@@ -198,6 +203,9 @@ def main(unused_argv):
                 for prediction in predict_results:
                     predicted_label = prediction['classes']
                     predicted_labels[predicted_label] = predicted_labels[predicted_label] + 1
+                    if predicted_label == label:
+                        correctCountPerSlice = correctCountPerSlice + 1
+                    totalSliceCount = totalSliceCount+1
 
             prediction = 0 if predicted_labels[0] > predicted_labels[1] else 1
 
@@ -208,9 +216,11 @@ def main(unused_argv):
             PrintBuffer.append( "result : %s %02d  :  %d , %d" % (cls , instance ,  predicted_labels[0] , predicted_labels[1] ) )
             print('result : ', cls, instance, predicted_labels)
 
+    print('-------------------------------------')
     for pb in PrintBuffer:
         print(pb)
     print('accuracy is %f' % ( 1.0 * correctCount / totalCount ))
+    print('accuracy per slice is %f' % ( 1.0 * correctCountPerSlice / totalSliceCount ))
 
     print("test")
 

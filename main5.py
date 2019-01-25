@@ -16,11 +16,14 @@ ITERATIONS = 50
 
 tf.logging.set_verbosity(tf.logging.DEBUG)
 
-trainRange = range(1, 13)
+instanceRange = list(range(1, 16))
+shuffle(instanceRange)
+
+trainRange = instanceRange[0:12]
 trainTimeRange = range(0,159)
 validationTimeRange = range(159,198)
 
-testRange = range(13, 16)
+testRange = instanceRange[12:15]
 
 formatPath = "/root/AUT/Project/Datasets/openfmri_parkinson/ds000245_tfr_expanded/%s%02d_%03d.tfrecord"
 
@@ -55,16 +58,19 @@ def bayesian_cnn_model_fn(features, labels, mode):
                              [-1, shape[0], shape[1], shape[2], 1])
 
 
+    # Dropout for input Layer
+    dropout_input = tf.layers.dropout(inputs=input_layer, rate=0.05, training=mode == tf.estimator.ModeKeys.TRAIN)
+
     # Convolutional Layer #1
     conv1 = tf.layers.conv3d(
-        inputs=input_layer,
+        inputs=dropout_input,
         filters=4,
         kernel_size=[5, 5, 5],
         padding="same",
         activation=tf.nn.relu)
 
     # Dropout Layer #1
-    dropout1 = tf.layers.dropout(inputs=conv1, rate=0.30, training=mode == tf.estimator.ModeKeys.TRAIN)
+    dropout1 = tf.layers.dropout(inputs=conv1, rate=0.1, training=mode == tf.estimator.ModeKeys.TRAIN)
     # Pooling Layer #1
     pool1 = tf.layers.max_pooling3d(inputs=dropout1, pool_size=[4, 4, 4], strides=4)
 
@@ -77,16 +83,20 @@ def bayesian_cnn_model_fn(features, labels, mode):
         activation=tf.nn.relu)
 
     # Dropout Layer #2
-    dropout2 = tf.layers.dropout(inputs=conv2, rate=0.40, training=mode == tf.estimator.ModeKeys.TRAIN)
+    dropout2 = tf.layers.dropout(inputs=conv2, rate=0.15, training=mode == tf.estimator.ModeKeys.TRAIN)
     # Pooling Layer #2
     pool2 = tf.layers.max_pooling3d(inputs=dropout2, pool_size=[4, 4, 4], strides=4)
 
     # Dense Layer
     pool2_flat = tf.reshape(pool2, [-1, 4 * 4 * 2 * 8])
-    dense = tf.layers.dense(inputs=pool2_flat, units=16, activation=tf.nn.relu)
 
     # final Dropout Layer
-    dropout = tf.layers.dropout(inputs=dense, rate=0.50, training=mode == tf.estimator.ModeKeys.TRAIN)
+    dropout_flat = tf.layers.dropout(inputs=pool2_flat, rate=0.2, training=mode == tf.estimator.ModeKeys.TRAIN)
+
+    dense = tf.layers.dense(inputs=dropout_flat, units=16, activation=tf.nn.relu)
+
+    # final Dropout Layer
+    dropout = tf.layers.dropout(inputs=dense, rate=0.2, training=mode == tf.estimator.ModeKeys.TRAIN)
 
     # Logits Layer
     logits = tf.layers.dense(inputs=dropout, units=2)
@@ -162,7 +172,7 @@ def test_input_fn(filename):
 
 def main(unused_argv):
     # model = (bayesian_cnn_model_fn, "./bayesian_cnn_model_fn")
-    model = (bayesian_cnn_model_fn, "./outmodel10_expand_processed")
+    model = (bayesian_cnn_model_fn, "./outmodels/1")
 
     my_classifier = tf.estimator.Estimator(model_fn=model[0], model_dir=model[1])
 
@@ -202,7 +212,7 @@ def main(unused_argv):
                     predicted_labels[predicted_label] = predicted_labels[predicted_label] + 1
                     if predicted_label == label:
                         correctCountPerSlice = correctCountPerSlice + 1
-                    totalSliceCount
+                    totalSliceCount = totalSliceCount+1
 
             prediction = 0 if predicted_labels[0] > predicted_labels[1] else 1
 
@@ -213,6 +223,7 @@ def main(unused_argv):
             PrintBuffer.append( "result : %s %02d  :  %d , %d" % (cls , instance ,  predicted_labels[0] , predicted_labels[1] ) )
             print('result : ', cls, instance, predicted_labels)
 
+    print('-------------------------------------')
     for pb in PrintBuffer:
         print(pb)
     print('accuracy is %f' % ( 1.0 * correctCount / totalCount ))
