@@ -4,6 +4,8 @@ from __future__ import print_function
 from random import shuffle
 import math
 
+import time
+
 import numpy as np
 import tensorflow as tf
 
@@ -19,7 +21,7 @@ tf.logging.set_verbosity(tf.logging.DEBUG)
 instanceRange = list(range(1, 16))
 shuffle(instanceRange)
 
-trainRange = instanceRange[0:12]
+trainRange = instanceRange #[0:12]
 trainTimeRange = range(0,159)
 validationTimeRange = range(159,198)
 
@@ -165,7 +167,7 @@ def test_input_fn(filename):
 
 def main(unused_argv):
     # model = (bayesian_cnn_model_fn, "./bayesian_cnn_model_fn")
-    model = (bayesian_cnn_model_fn, "./outmodel20_expand_processed")
+    model = (bayesian_cnn_model_fn, "./outmodel21_expand_processed")
 
     my_classifier = tf.estimator.Estimator(model_fn=model[0], model_dir=model[1])
 
@@ -183,8 +185,10 @@ def main(unused_argv):
         eval_results = my_classifier.evaluate(input_fn=lambda: eval_input_fn(iteration))
         print(eval_results)
 
-    predict_results = my_classifier.predict(input_fn=test_input_fn)
-    print(predict_results)
+    # predict_results = my_classifier.predict(input_fn=test_input_fn)
+    # print(predict_results)
+
+    test_start_time = time.time()
 
     PrintBuffer = []
 
@@ -221,6 +225,7 @@ def main(unused_argv):
         print(pb)
     print('accuracy is %f' % ( 1.0 * correctCount / totalCount ))
     print('accuracy per slice is %f' % ( 1.0 * correctCountPerSlice / totalSliceCount ))
+    print("test time : %d seconds" % (time.time() - test_start_time))
 
     print("test")
 
